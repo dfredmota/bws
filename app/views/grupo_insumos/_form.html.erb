@@ -1,0 +1,15 @@
+<%= form_for(grupo_insumo, html: { class: 'form-horizontal' }) do |f| %>
+  <div class="form-group">
+    <%= f.label :descricao, class: 'col-sm-2 control-label' %>
+    <div class="col-sm-8">
+      <%= f.text_field :descricao, :class => 'form-control', autofocus: true %>
+      <%=f.error_span(:descricao) %>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <%= f.submit nil, class: 'btn btn-primary btn-sm', data: { tooltip: true, placement: 'top', animation: true }, title: 'Salvar registro' %>
+      <%= link_to I18n.t('.cancel', default: I18n.t("helpers.links.cancel")), grupo_insumos_path, class: 'btn btn-default btn-sm', data: { tooltip: true, placement: 'top', animation: true }, title: "Retorna para listagem" %>
+    </div>
+  </div>
+<% end %>

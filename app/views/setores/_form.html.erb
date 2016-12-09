@@ -1,0 +1,16 @@
+<%= form_for(setor, html: { class: 'form-horizontal' }) do |f| %>
+  <%= render 'layouts/error_messages', model_name: setor %>
+  <div class="form-group">
+    <%= f.label :descricao, class: 'col-sm-2 control-label' %>
+    <div class="col-sm-8">
+      <%= f.text_field :descricao, :class => 'form-control',:required => true  %>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <%= f.submit nil, class: 'btn btn-primary' %>
+      <%= link_to I18n.t('.cancel', default: I18n.t("helpers.links.cancel")),
+                  setores_path, class: 'btn' %>
+    </div>
+  </div>
+<% end %>

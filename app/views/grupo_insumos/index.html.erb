@@ -1,0 +1,19 @@
+<div class="page-header" style="border: none">
+  <h3><%=  I18n.t('activerecord.models.grupo_insumo') %></h3>
+  <hr/>
+  <%= link_to "Novo", new_grupo_insumo_path, class: "btn btn-primary btn-sm", data: { tooltip: true, placement: 'top', animation: true }, title: 'Novo registro' %>
+
+</div>
+
+<%= grid(@grupo_insumos_grid) do |g|
+  g.column name: 'Descricao', attribute: 'descricao' do |task|
+    task.descricao
+  end
+    g.column do |task|
+    btn = link_to_show(task)
+    btn << link_to_edit(edit_grupo_insumo_path(task))
+    btn << link_to_delete(task)
+    btn
+    content_tag :div, btn, class: 'btn-group', role:'group'
+  end
+end -%>

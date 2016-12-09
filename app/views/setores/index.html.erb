@@ -1,0 +1,25 @@
+<%- model_class = Setor -%>
+<div class="page-header" style="border: none">
+  <h3><%=  I18n.t('activerecord.models.setor') %></h3>
+  <hr/>
+  <%= link_to "Novo", new_setor_path, class: 'btn btn-primary' %>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+       <th><%= model_class.human_attribute_name(:descricao) %></th>
+      <th width="10%">Ações</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @setores.each do |setor| %>
+      <tr>
+        <td><%= setor.descricao %></td>
+        <td>
+          <%= link_to  I18n.t('.edit', default: I18n.t("helpers.links.edit")), edit_setor_path(setor), class: 'btn btn-mini' %>
+          <%= link_to I18n.t('.destroy', default: I18n.t("helpers.links.destroy")), setor, method: :delete, data: { confirm:  I18n.t('.confirm', default:  I18n.t("helpers.links.confirm", default: 'Tem certeza?')) }, class: 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

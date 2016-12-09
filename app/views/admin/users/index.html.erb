@@ -1,0 +1,9 @@
+<%- model_class = User -%>
+<div class="page-header" style="border: none">
+  <h3><%=  I18n.t('activerecord.models.user') %></h3>
+  <hr/>
+  <%= link_to "Novo", new_admin_user_path, class: 'btn btn-primary' %>
+</div>
+<div>
+  <%= render partial: 'grid' %>
+</div>

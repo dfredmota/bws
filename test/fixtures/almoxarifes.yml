@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  colaborador_id: 
+  centro_custo_id: 
+
+two:
+  colaborador_id: 
+  centro_custo_id: 

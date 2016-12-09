@@ -1,0 +1,3 @@
+$('#myModal').find('.modal-title').html("Material locado em <%= @locacao.data_locacao.try(:strftime, '%d/%m/%Y') %>");
+$('#myModal').find('.modal-body').html("<%= j render partial: 'grid_materiais', locals: { materiais_grid: @materiais_grid } %>");
+$('#myModal').modal();

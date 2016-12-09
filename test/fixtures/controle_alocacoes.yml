@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  data_transferencia: 2016-03-10 15:32:37
+  entregador_id: 
+  recebedor_id: 1
+  centro_custo_id: 
+  tipo_alocacao_id: 
+
+two:
+  data_transferencia: 2016-03-10 15:32:37
+  entregador_id: 
+  recebedor_id: 1
+  centro_custo_id: 
+  tipo_alocacao_id: 

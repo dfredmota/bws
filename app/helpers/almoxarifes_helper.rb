@@ -1,0 +1,2 @@
+module AlmoxarifesHelper
+end

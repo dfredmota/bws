@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  bem_id: 
+  colaborador_id: 
+  quantidade: 1
+
+two:
+  bem_id: 
+  colaborador_id: 
+  quantidade: 1

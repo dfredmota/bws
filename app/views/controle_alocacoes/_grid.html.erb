@@ -1,0 +1,40 @@
+<%# show_filters: :when_filtered %>
+<%= grid(@alocacoes_grid) do |g|
+
+  g.column name: 'Data de Transferência', attribute: 'data_transferencia' do |p|
+    p.data_transferencia.try(:strftime, '%d/%m/%Y')
+  end
+
+  g.column name: 'Entregador', assoc: :entregador, attribute: 'nome' do |p|
+    p.entregador.nome
+  end
+
+  g.column name: 'Recebedor', assoc: :recebedor, attribute: 'nome' do |p|
+    p.recebedor.nome
+  end
+
+  g.column name: 'Centro Custo', assoc: :centro_custo, attribute: 'descricao' do |p|
+    p.centro_custo.descricao
+  end
+
+  g.column name: 'Tipo de Alocação', assoc: :tipo_alocacao, attribute: 'descricao' do |p|
+    p.tipo_alocacao.descricao
+  end
+
+  g.column name: 'Cadastrado em', attribute: 'created_at' do |p|
+   p.created_at.try(:strftime, '%d/%m/%Y')
+  end
+
+  g.column name: 'Endereço', attribute: 'endereco' do |p|
+    p.endereco
+  end
+
+  g.column in_csv: false do |task|
+    link_to 'Itens', controle_alocacoes_itens_path(controle_id: task), class: 'btn btn-primary btn-sm', remote: true
+    # btn = link_to_show(task)
+    # btn << link_to_edit(edit_colaborador_path(task))
+    # btn << link_to_delete(task)
+    # btn
+  end
+
+end %>

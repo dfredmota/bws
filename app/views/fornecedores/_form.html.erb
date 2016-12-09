@@ -1,0 +1,45 @@
+<%= form_for(fornecedor, html: { class: 'form-horizontal' }) do |f| %>
+  <%= render 'layouts/error_messages', model_name: fornecedor %>
+  <div class="form-group">
+    <%= f.label :razao_social, class: 'col-sm-2 control-label' %>
+    <div class="col-sm-6">
+      <%= f.text_field :razao_social, :class => 'form-control',:required => true  %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :cnpj, class: 'col-sm-2 control-label' %>
+    <div class="col-sm-6">
+      <%= f.text_field :cnpj, :class => 'form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :nome_fantasia, class: 'col-sm-2 control-label' %>
+    <div class="col-sm-6">
+      <%= f.text_field :nome_fantasia, :class => 'form-control' %>
+    </div>
+  </div>
+    <div class="form-group">
+    <%= f.label :endereco, class: 'col-sm-2 control-label' %>
+    <div class="col-sm-6">
+      <%= f.text_field :endereco, :class => 'form-control'  %>
+    </div>
+  </div>
+    <div class="form-group">
+      <%= f.label :telefone, class: 'col-sm-2 control-label' %>
+      <div class="col-sm-4">
+        <%= f.text_field :telefone, :class => 'form-control' %>
+      </div>
+    </div>
+  <div class="form-group">
+    <%= f.label :email, class: 'col-sm-2 control-label' %>
+    <div class="col-sm-4">
+      <%= f.text_field :email, :class => 'form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <%= f.submit nil, class: 'btn btn-primary' %>
+      <%= link_to I18n.t('.cancel', default: I18n.t("helpers.links.cancel")), fornecedores_path, class: 'btn' %>
+    </div>
+  </div>
+<% end %>

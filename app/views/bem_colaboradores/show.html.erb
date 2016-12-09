@@ -1,0 +1,22 @@
+<div class="page-header">
+  <h3><%= I18n.t('.title', default: @bem_colaborador.class.model_name.human ) %></h3>
+</div>
+<dl class="dl-horizontal">
+    <dt><strong>Bem:</strong></dt>
+  <dd><%= @bem_colaborador.bem %></dd>
+    <dt><strong>Colaborador:</strong></dt>
+  <dd><%= @bem_colaborador.colaborador %></dd>
+    <dt><strong>Quantidade:</strong></dt>
+  <dd><%= @bem_colaborador.quantidade %></dd>
+  </dl>
+<div class="form-actions">
+  <%= link_to I18n.t('.back', default: t("helpers.links.back")),
+              bem_colaboradores_path, class: 'btn'  %>
+  <%= link_to I18n.t('.edit', default: t("helpers.links.edit")),
+              edit_bem_colaborador_path(@bem_colaborador), class: 'btn' %>
+  <%= link_to I18n.t('.destroy', default: t("helpers.links.destroy")),
+              bem_colaborador_path(@bem_colaborador),
+              method: 'delete',
+              data: { confirm: t('.confirm', default: t("helpers.links.confirm", default: 'Tem certeza que deseja remover o registro?')) },
+              class: 'btn btn-danger' %>
+</div>

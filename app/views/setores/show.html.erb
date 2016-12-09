@@ -1,0 +1,18 @@
+<div class="page-header">
+  <h3><%= I18n.t('.title', default: @setor.class.model_name.human ) %></h3>
+</div>
+<dl class="dl-horizontal">
+    <dt><strong>Descricao:</strong></dt>
+  <dd><%= @setor.descricao %></dd>
+  </dl>
+<div class="form-actions">
+  <%= link_to I18n.t('.back', default: t("helpers.links.back")),
+              setores_path, class: 'btn'  %>
+  <%= link_to I18n.t('.edit', default: t("helpers.links.edit")),
+              edit_setor_path(@setor), class: 'btn' %>
+  <%= link_to I18n.t('.destroy', default: t("helpers.links.destroy")),
+              setor_path(@setor),
+              method: 'delete',
+              data: { confirm: t('.confirm', default: t("helpers.links.confirm", default: 'Tem certeza que deseja remover o registro?')) },
+              class: 'btn btn-danger' %>
+</div>

@@ -1,0 +1,37 @@
+<%- model_class = Colaborador -%>
+<div class="page-header" style="border: none">
+  <h3><%=  I18n.t('activerecord.models.colaborador') %></h3>
+  <hr/>
+  <%= link_to "Novo", new_colaborador_path, class: 'btn btn-primary' %>
+</div>
+<%= render partial: 'grid' %>
+<!-- <table class="table table-striped">
+  <thead>
+    <tr>
+       <th><%#= model_class.human_attribute_name(:nome) %></th>
+       <th><%#= model_class.human_attribute_name(:cpf) %></th>
+       <th><%#= model_class.human_attribute_name(:data_nascimento) %></th>
+       <th><%#= model_class.human_attribute_name(:funcao_id) %></th>
+       <th><%#= model_class.human_attribute_name(:data_admissao) %></th>
+       <th><%#= model_class.human_attribute_name(:data_demissao) %></th>
+      <th width="10%">Ações</th>
+    </tr>
+  </thead>
+  <tbody>
+    <%# @colaboradores.each do |colaborador| %>
+      <tr>
+        <td><%#= colaborador.nome %></td>
+        <td><%#= colaborador.cpf %></td>
+        <td><%#= colaborador.data_nascimento.try(:to_date).try(:strftime, '%d/%m/%Y') %></td>
+        <td><%#= colaborador.funcao.try(:strftime, '%d/%m/%Y') %></td>
+        <td><%#= colaborador.data_admissao.try(:strftime, '%d/%m/%Y') %></td>
+        <td><%#= colaborador.data_demissao %></td>
+        <td>
+          <%#= link_to  I18n.t('.edit', default: I18n.t("helpers.links.edit")), edit_colaborador_path(colaborador), class: 'btn btn-mini' %>
+          <%#= link_to I18n.t('.destroy', default: I18n.t("helpers.links.destroy")), colaborador, method: :delete, data: { confirm:  I18n.t('.confirm', default:  I18n.t("helpers.links.confirm", default: 'Tem certeza?')) }, class: 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>
+    <%# end %>
+  </tbody>
+</table>
+ -->

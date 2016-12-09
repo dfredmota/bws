@@ -1,0 +1,61 @@
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container-fluid">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <a class="navbar-brand" href="<%= root_path %>" >
+      <p><%= image_tag "bws_logo_inicial.png", width: '70' %> <span><%= nome_sistema %></span></p>
+    </a>
+    <div class="navbar-collapse collapse navbar-responsive-collapse">
+      <ul class="nav navbar-nav">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"> Cadastros<span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <%# if current_user.admin? %>
+                <li><a href="<%= admin_users_path %>"><i class="fa fa-users"></i> Usuários</a></li>
+                <li><a href="<%= usuarios_mobiles_path %>"><i class="fa fa-users"></i> Usuários Mobile</a></li>
+                <li><a href="<%= colaboradores_path %>"><i class="fa fa-male"></i> Colaboradores</a></li>
+                <li><a href="<%= centro_custos_path %>"><i class="fa fa-map-marker"></i> Centro de Custos</a></li>
+                <li><a href="<%= setores_path %>"><i class="fa fa-street-view"></i> Setores</a></li>
+                <li><a href="<%= almoxarifes_path %>"><i class="fa fa-briefcase"></i> Almoxarifes</a></li>
+                <li><a href=" <%= prazo_locacoes_path %>"><i class="fa fa-briefcase"></i> Prazos de Locação</a></li>
+                <li><a href=" <%= funcoes_path %>"><i class="fa fa-briefcase"></i> Função</a></li>
+                <li><a href=" <%= fornecedores_path %>"><i class="fa fa-briefcase"></i> Fornecedores</a></li>
+                <li><a href=" <%= materiais_path %>"><i class="fa fa-briefcase"></i> Material Locado</a></li>
+                <li><a href=" <%= bem_colaboradores_path %>"><i class="fa fa-briefcase"></i> Itens-Colaboradores</a></li>
+                <li><a href=" <%= grupo_insumos_path %>"><i class="fa fa-briefcase"></i> Grupos de Insumo</a></li>
+                <li><a href=" <%= insumos_path %>"><i class="fa fa-briefcase"></i> Insumos</a></li>
+                <li><a href=" <%= estado_conservacoes_path %>"><i class="fa fa-briefcase"></i> Estados Conservação</a></li>
+            <%# end %>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"> Controle<span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <%# if current_user.admin? %>
+              <li><a href="<%= bens_path %>"><i class="fa fa-wrench"></i> Ferramentas / EPI / Patrimônio</a></li>
+              <li><a href="<%= controle_alocacoes_path %>"><i class="fa fa-exchange"></i> Controle de Alocações</a></li>
+              <li><a href="<%= locacoes_path %>"><i class="fa fa-money"></i> Locações</a></li>
+            <%# end %>
+          </ul>
+        </li>
+      </ul>
+
+      <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-user"></i> <%= current_user.nome %> <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="<%= edit_user_registration_path %>"><i class="fa fa-pencil"></i>&nbsp; Editar</a></li>
+            <% if current_user.admin? %>
+            <li><a href="<%= admin_roles_path %>"><i class="fa fa-cog"></i>&nbsp; Permissões</a></li>
+            <% end %>
+            <li class="divider"></li>
+            <li><%= link_to "Logout", logout_path, data: { method: 'DELETE' }  %></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

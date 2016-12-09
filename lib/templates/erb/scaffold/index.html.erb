@@ -1,0 +1,20 @@
+<div class="page-header" style="border: none">
+  <h3>Listar <%%=  I18n.t('activerecord.models.<%= singular_table_name %>') %></h3>
+  <hr/>
+</div>
+
+<%%= grid(@<%= plural_table_name %>_grid) do |g|
+  <% attributes.each do |attribute| -%>
+  g.column name: '<%= attribute.human_name %>', attribute: '<%= attribute.name %>' do |task|
+    task.<%= attribute.name %>
+  end
+  <% end -%>
+  g.column do |task|
+    btn = link_to_show(task)
+    btn << link_to_edit(edit_<%= singular_table_name %>_path(task))
+    btn << link_to_delete(task)
+    btn
+    content_tag :div, btn, class: 'btn-group', role:'group'
+  end
+end -%>
+<%%= link_to " Incluir", new_<%= singular_table_name %>_path, class: "btn btn-primary btn-sm", data: { tooltip: true, placement: 'top', animation: true }, title: 'Novo registro' %>

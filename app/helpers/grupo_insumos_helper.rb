@@ -1,0 +1,2 @@
+module GrupoInsumosHelper
+end

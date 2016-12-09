@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  nome: MyString
+  cpf: MyString
+  data_nascimento: MyString
+  funcao_id: 
+  data_admissao: 2016-03-02 21:10:45
+  data_demissao: 2016-03-02 21:10:45
+  deleted_at: 2016-03-02 21:10:45
+
+two:
+  nome: MyString
+  cpf: MyString
+  data_nascimento: MyString
+  funcao_id: 
+  data_admissao: 2016-03-02 21:10:45
+  data_demissao: 2016-03-02 21:10:45
+  deleted_at: 2016-03-02 21:10:45

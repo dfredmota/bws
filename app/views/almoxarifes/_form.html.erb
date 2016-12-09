@@ -1,0 +1,24 @@
+<%= form_for(almoxarife, html: { class: 'form-horizontal' }) do |f| %>
+  <%= render 'layouts/error_messages', model_name: almoxarife %>
+  <div class="form-group">
+    <%= f.label :colaborador_id, class: 'col-sm-2 control-label' %>
+    <div class="col-sm-8">
+      <%#= f.text_field :colaborador, :class => 'form-control'  %>
+      <%= f.select :colaborador_id, Colaborador.to_dropdown, { include_blank: true }, {:class => 'form-control'}  %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :centro_custo_id, class: 'col-sm-2 control-label' %>
+    <div class="col-sm-8">
+      <%#= f.text_field :centro_custo, :class => 'form-control'  %>
+      <%= f.select :centro_custo_id, CentroCusto.to_dropdown, { include_blank: true }, {:class => 'form-control'}  %>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <%= f.submit nil, class: 'btn btn-primary' %>
+      <%= link_to I18n.t('.cancel', default: I18n.t("helpers.links.cancel")),
+                  almoxarifes_path, class: 'btn' %>
+    </div>
+  </div>
+<% end %>

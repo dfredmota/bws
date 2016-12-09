@@ -1,0 +1,26 @@
+<%# show_filters: :when_filtered %>
+<%= grid(@users_grid) do |g|
+
+  g.column name: 'Nome', attribute: 'nome'
+
+  g.column name: 'Login', attribute: 'login'
+
+  g.column name: 'Email', attribute: 'email'
+
+  g.column name: 'Última Atualização em', attribute: 'updated_at', in_html: false do |p|
+   p.updated_at.try(:strftime, '%d/%m/%Y')
+  end
+
+  g.column name: 'Criado em', attribute: 'created_at' do |p|
+   p.created_at.try(:strftime, '%d/%m/%Y')
+  end
+
+  g.column in_csv: false do |task|
+    btn = link_to_show(admin_user_path(task))
+    btn << link_to_edit(edit_admin_user_path(task))
+    btn << link_to_delete(admin_user_path(task))
+    btn << link_to('', admin_user_redefinir_senha_path(task), data: { confirm: 'Redefinir a senha deste usuário?' }, class: 'btn btn-sm fa fa-refresh has-tooltip', title: 'Redefinir Senha')
+    btn
+   end
+
+end %>

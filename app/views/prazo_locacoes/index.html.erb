@@ -1,0 +1,27 @@
+<%- model_class = PrazoLocacao -%>
+<div class="page-header" style="border: none">
+  <h3><%=  I18n.t('activerecord.models.prazo_locacao') %></h3>
+  <hr/>
+  <%= link_to "Novo", new_prazo_locacao_path, class: 'btn btn-primary' %>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+       <th><%= model_class.human_attribute_name(:descricao) %></th>
+      <th><%= model_class.human_attribute_name(:qtd_dias) %></th>
+      <th width="10%">Ações</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @prazo_locacoes.each do |prazo_locacao| %>
+      <tr>
+        <td><%= prazo_locacao.descricao %></td>
+        <td><%= prazo_locacao.qtd_dias%></td>
+        <td>
+          <%= link_to  I18n.t('.edit', default: I18n.t("helpers.links.edit")), edit_prazo_locacao_path(prazo_locacao), class: 'btn btn-mini' %>
+          <%= link_to I18n.t('.destroy', default: I18n.t("helpers.links.destroy")), prazo_locacao, method: :delete, data: { confirm:  I18n.t('.confirm', default:  I18n.t("helpers.links.confirm", default: 'Tem certeza?')) }, class: 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

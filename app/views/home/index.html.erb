@@ -1,0 +1,13 @@
+<div class="alert alert-success" role="alert"> Bem vindo <b><%= current_user.nome %></b>, ao sistema <%= nome_sistema %></div>
+<% if session[:change_pass] %>
+<div class="alert alert-danger" role="alert">Sua senha deve ser alterada, <%= link_to 'Clique aqui', edit_user_registration_path, class: 'btn btn-danger btn-xs' %> para alterar </div>
+<% end %>
+<div class="alert alert-info" role="alert">Seu último acesso foi <b><%= current_user.last_sign_in_at.try(:strftime, '%d/%m/%y %H:%M') %></b></div>
+
+<!-- <div class="list-group">
+  <a class="list-group-item" href="#"><i class="fa fa-home fa-fw"></i>&nbsp; Home</a>
+  <a class="list-group-item" href="#"><i class="fa fa-book fa-fw"></i>&nbsp; Library</a>
+  <a class="list-group-item" href="#"><i class="fa fa-pencil fa-fw"></i>&nbsp; Applications</a>
+  <a class="list-group-item" href="#"><i class="fa fa-cog fa-fw"></i>&nbsp; Settings</a>
+</div>
+ -->

@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  fornecedor: 
+  contrato: MyString
+  prazo_locacao_id: 
+  data_locacao: 2016-04-23
+  funcionario_responsavel_id: 
+  valor_locacao: MyString
+
+two:
+  fornecedor: 
+  contrato: MyString
+  prazo_locacao_id: 
+  data_locacao: 2016-04-23
+  funcionario_responsavel_id: 
+  valor_locacao: MyString

@@ -1,0 +1,8 @@
+<nav class="navbar navbar-default navbar-fixed-bottom">
+  <div class="container text-center">
+    <footer>
+      <p><%= I18n.l(Date.today, format: :complete) %></p>
+      <p><i class="pull-right" style="font-size: 0.8em;">Versão: <%= SystemVersion.last.try(:version) %> - Última atualização: <%= SystemVersion.last.try(:date_deploy).strftime('%d/%m/%Y %H:%M:%S') %></i></p>
+    </footer>
+  </div>
+</nav>

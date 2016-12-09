@@ -1,0 +1,22 @@
+<%- model_class = Fornecedor -%>
+<div class="page-header" style="border: none">
+  <h3><%=  I18n.t('activerecord.models.fornecedor') %></h3>
+  <hr/>
+  <%= link_to "Novo", new_fornecedor_path, class: 'btn btn-primary' %>
+</div>
+
+<%= grid(@fornecedores_grid, hide_csv_button: true) do |g|
+  g.column name: 'Razão Solcial', attribute: 'razao_social'
+  g.column name: 'CNPJ', attribute: 'cnpj'
+  g.column name: 'Nome Fantasia', attribute: 'nome_fantasia'
+  g.column name: 'Telefone', attribute: 'telefone'
+  g.column name: 'Endereço', attribute: 'endereco'
+  g.column name: 'Email', attribute: 'email'
+  g.column do |task|
+    btn = link_to_show(task)
+    btn << link_to_edit(edit_fornecedor_path(task))
+    btn << link_to_delete(task)
+    btn
+    content_tag :div, btn, class: 'btn-group', role:'group'
+  end
+end -%>

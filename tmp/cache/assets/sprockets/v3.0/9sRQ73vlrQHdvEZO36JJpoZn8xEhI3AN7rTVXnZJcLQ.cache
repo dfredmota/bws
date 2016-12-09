@@ -1,0 +1,81 @@
+I"©(function() {
+  this.TheNotification = (function() {
+    return {
+      show_error: function(error) {
+        if (error) {
+          return toastr.error(error);
+        }
+      },
+      show_errors: function(errors) {
+        var err, errs, field, results;
+        results = [];
+        for (field in errors) {
+          errs = errors[field];
+          results.push((function() {
+            var i, len, results1;
+            results1 = [];
+            for (i = 0, len = errs.length; i < len; i++) {
+              err = errs[i];
+              results1.push(toastr.error("<b>" + field + ":</b> " + err));
+            }
+            return results1;
+          })());
+        }
+        return results;
+      },
+      show_flash: function(flash) {
+        var _msg, fu, level, method, msg, results;
+        fu = {
+          notice: 'info',
+          errors: 'error',
+          error: 'error',
+          warning: 'warning',
+          alert: 'warning'
+        };
+        results = [];
+        for (level in flash) {
+          msg = flash[level];
+          method = fu[level] || 'info';
+          if (msg instanceof Array) {
+            results.push((function() {
+              var i, len, results1;
+              results1 = [];
+              for (i = 0, len = msg.length; i < len; i++) {
+                _msg = msg[i];
+                results1.push(toastr[method](_msg));
+              }
+              return results1;
+            })());
+          } else {
+            results.push(toastr[method](msg));
+          }
+        }
+        return results;
+      },
+      show_notifications: function() {
+        var data, errors, flash;
+        data = window.the_notifications;
+        if (!data) {
+          return false;
+        }
+        if (errors = data.errors) {
+          this.show_errors(errors);
+        }
+        if (flash = data.flash) {
+          return this.show_flash(flash);
+        }
+      },
+      click_for_close_init: function() {
+        return $('.flash_msgs, .error_explanation').on('click', function() {
+          return $(this).slideUp(500);
+        });
+      },
+      init: function() {
+        this.click_for_close_init();
+        return this.show_notifications();
+      }
+    };
+  })();
+
+}).call(this);
+:ET

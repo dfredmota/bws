@@ -1,0 +1,16 @@
+<%#= link_to 'CSV', '#', class: 'btn btn-primary wg-external-csv-export-button', data: { 'grid-name' => 'u2' } %>
+<%= grid(@materiais_grid, hide_csv_button: true, show_filters: :no) do |g|
+
+  g.column name: 'Descrição' do |p|
+    p.material.descricao
+  end
+
+  g.column name: 'Qtd Locada' do |p|
+    p.qtd_locada
+  end
+
+  g.column name: 'Cadastrado em' do |p|
+    p.created_at.try(:strftime, '%d/%m/%Y')
+  end
+
+end %>

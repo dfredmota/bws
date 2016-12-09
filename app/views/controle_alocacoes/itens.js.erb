@@ -1,0 +1,3 @@
+$('#myModal').find('.modal-title').html("Material transferido em <%= @alocacao.data_transferencia.try(:strftime, '%d/%m/%Y') %> - C. Custo: <%= @alocacao.centro_custo.descricao %>");
+$('#myModal').find('.modal-body').html("<%= j render partial: 'grid_itens', locals: {itens_grid: @itens_grid } %>");
+$('#myModal').modal();

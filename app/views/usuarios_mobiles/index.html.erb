@@ -1,0 +1,31 @@
+<%- model_class = UsuariosMobile -%>
+<div class="page-header" style="border: none">
+  <h3><%=  I18n.t('activerecord.models.usuarios_mobile') %></h3>
+  <hr/>
+  <%= link_to "Novo", new_usuarios_mobile_path, class: 'btn btn-primary' %>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+       <th><%= model_class.human_attribute_name(:login) %></th>
+       <th><%= model_class.human_attribute_name(:senha) %></th>
+       <th><%= model_class.human_attribute_name(:colaborador) %></th>
+       <th><%= model_class.human_attribute_name(:super_usuario) %></th>
+      <th width="10%">Ações</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @usuarios_mobiles.each do |usuarios_mobile| %>
+      <tr>
+        <td><%= usuarios_mobile.login %></td>
+        <td><%= usuarios_mobile.senha %></td>
+        <td><%= usuarios_mobile.colaborador.nome %></td>
+        <td><%= usuarios_mobile.super_usuario %></td>
+        <td>
+          <%= link_to  I18n.t('.edit', default: I18n.t("helpers.links.edit")), edit_usuarios_mobile_path(usuarios_mobile), class: 'btn btn-mini' %>
+          <%= link_to I18n.t('.destroy', default: I18n.t("helpers.links.destroy")), usuarios_mobile, method: :delete, data: { confirm:  I18n.t('.confirm', default:  I18n.t("helpers.links.confirm", default: 'Tem certeza?')) }, class: 'btn btn-mini btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

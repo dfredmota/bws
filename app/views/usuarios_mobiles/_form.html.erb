@@ -1,0 +1,34 @@
+<%= form_for(usuarios_mobile, html: { class: 'form-horizontal' }) do |f| %>
+  <%= render 'layouts/error_messages', model_name: usuarios_mobile %>
+  <div class="form-group">
+    <%= f.label :login, class: 'col-sm-2 control-label' %>
+    <div class="col-sm-5">
+      <%= f.text_field :login, :class => 'form-control',:required => true  %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :senha, class: 'col-sm-2 control-label' %>
+    <div class="col-sm-5">
+      <%= f.text_field :senha, :class => 'form-control',:required => true  %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :colaborador, class: 'col-sm-2 control-label' %>
+    <div class="col-sm-8">
+      <%= f.select :colaborador_id, Colaborador.all().collect { |m| [m.nome, m.id ] }, {:prompt => 'Selecione'}, :required => true %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :super_usuario, class: 'col-sm-2 control-label' %>
+    <div class="col-sm-8">
+      <%= f.select :super_usuario, [['Sim', true], ['Não', false]],:required => true  %>
+    </div>
+  </div>
+ <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <%= f.submit nil, class: 'btn btn-primary' %>
+      <%= link_to I18n.t('.cancel', default: I18n.t("helpers.links.cancel")),
+                  usuarios_mobiles_path, class: 'btn' %>
+    </div>
+  </div>
+<% end %>

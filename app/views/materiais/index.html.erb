@@ -1,0 +1,7 @@
+<%- model_class = Material -%>
+<div class="page-header" style="border: none">
+  <h3><%=  I18n.t('activerecord.models.material') %></h3>
+  <hr/>
+  <%= link_to "Novo", new_material_path, class: 'btn btn-primary' %>
+</div>
+<%= render partial: 'grid' %>

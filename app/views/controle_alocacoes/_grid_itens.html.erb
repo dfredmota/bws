@@ -1,0 +1,20 @@
+<%#= link_to 'CSV', '#', class: 'btn btn-primary wg-external-csv-export-button', data: { 'grid-name' => 'u2' } %>
+<%= grid(@itens_grid, hide_csv_button: true, show_filters: :no) do |g|
+
+  g.column name: 'Insumo' do |p|
+    p.bem.insumo.descricao
+  end
+
+  g.column name: 'Situação' do |p|
+    p.bem.situacao.descricao
+  end
+
+  g.column name: 'Tipo' do |p|
+    p.bem.tipo_bem.descricao
+  end
+
+  g.column name: 'Qtd Alocada' do |p|
+    p.quantidade_alocada
+  end
+
+end %>

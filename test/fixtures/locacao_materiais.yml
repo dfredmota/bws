@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  material_id: 
+  locacao_id: 
+  qtd_locada: 1
+
+two:
+  material_id: 
+  locacao_id: 
+  qtd_locada: 1

@@ -1,0 +1,57 @@
+<%# show_filters: :when_filtered %>
+<%= grid(@bens_grid) do |g|
+
+  g.column name: 'Tipo de Item', assoc: :tipo_bem, attribute: 'descricao' do |p|
+    p.tipo_bem.descricao if p.tipo_bem
+  end
+
+  g.column name: 'Grupo Insumo', assoc: :grupo_insumo, attribute: 'descricao' do |p|
+    p.grupo_insumo.descricao if p.grupo_insumo
+  end
+
+  g.column name: 'Insumo', assoc: :insumo, attribute: 'descricao' do |p|
+    p.insumo.descricao if p.insumo
+  end
+
+  g.column name: 'Patrimonio', attribute: 'patrimonio' do |p|
+    p.patrimonio.try(:to_i)
+  end
+  g.column name: 'Marca', attribute: 'marca'
+  g.column name: 'Modelo', attribute: 'modelo'
+  g.column name: 'Nº Série', attribute: 'numero_serie'
+  g.column name: 'Detalhamento', attribute: 'detalhamento'
+  g.column name: 'Observação', attribute: 'observacao'
+  g.column name: 'Valor', attribute: 'valor'
+  g.column name: 'Nota Fiscal', attribute: 'nota_fiscal'
+  g.column name: 'Data Compra', attribute: 'data_compra' do |p|
+    p.data_compra.try(:strftime, '%d/%m/%Y')
+  end
+
+  g.column name: 'Situação', assoc: :situacao, attribute: 'descricao' do |p|
+   p.situacao.descricao if p.situacao
+  end
+  g.column name: 'Estado Conserv', assoc: :estado_conservacao, attribute: 'descricao' do |p|
+    p.estado_conservacao.descricao if p.estado_conservacao
+  end
+  g.column name: 'Centro Custo', assoc: :centro_custo, attribute: 'descricao' do |p|
+   p.centro_custo.descricao if p.centro_custo
+  end
+  g.column name: 'Setor', assoc: :setor, attribute: 'descricao' do |p|
+   p.setor.descricao if p.setor
+  end
+
+  g.column name: 'Atualizado em', attribute: 'updated_at', in_html: false do |p|
+    p.updated_at.try(:strftime, '%d/%m/%Y')
+  end
+
+  g.column name: 'Cadastrado em', attribute: 'created_at', in_html: false do |p|
+    p.created_at.try(:strftime, '%d/%m/%Y')
+  end
+  g.column html: {style: 'width: 8%;'} do |task|
+     btn = link_to_show(task)
+     btn << link_to_edit(edit_bem_path(task))
+     btn << link_to_delete(task)
+     btn
+   end
+
+end %>
